@@ -29,6 +29,7 @@
     "autoprefixer": "^10",
     "eslint": "^8",
     "eslint-config-next": "14.0.0",
+    "https-proxy-agent": "^7.0.2",
     "postcss": "^8",
     "prettier": "^3.0.3",
     "tailwindcss": "^3",
