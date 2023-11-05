@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import { FcLeft, FcRight } from "react-icons/fc";
 interface PaginationBarPros {
   currentPage: number;
   totalPages: number;
@@ -23,7 +23,28 @@ const PaginationBar = ({ currentPage, totalPages }: PaginationBarPros) => {
     );
   }
 
-  return <div className="join content-center">{numberedPageItems}</div>;
+  return (
+    <div>
+      <div className="join hidden sm:block">{numberedPageItems}</div>
+      <div className="join block sm:hidden">
+        {currentPage > 1 && (
+          <Link href={"?page=" + (currentPage - 1)} className="btn join-item">
+            <FcLeft />
+          </Link>
+        )}
+
+        <Link href={"?page=" + currentPage} className="btn join-item">
+          Page {currentPage}
+        </Link>
+
+        {currentPage < totalPages && (
+          <Link href={"?page=" + (currentPage + 1)} className="btn join-item">
+            <FcRight />
+          </Link>
+        )}
+      </div>
+    </div>
+  );
 };
 
 export default PaginationBar;
